@@ -67,6 +67,7 @@ Controller → Service → Repository
 - 异步任务通过 Redis Stream（`AbstractStreamProducer/Consumer` 模板）
 - 所有业务异常使用 `BusinessException(ErrorCode.XXX, message)`，禁止 `RuntimeException`
 - **个人注记**：本地开发时默认 provider 设为 `ollama`，避免消耗 API 额度；生产环境再切换为 `openai`
+- **个人注记**：本地调试 `StructuredOutputInvoker` 时，重试次数建议设为 1（默认 3），减少等待时间；ollama 响应慢，3 次重试会卡很久
 
 ### Repository 层
 
@@ -79,5 +80,4 @@ Controller → Service → Repository
 
 | 后缀 | 用途 | 示例 |
 |------|------|------|
-| `XxxEntity` | JPA 持久化 | `ResumeEntity`、`InterviewSessionEntity` |
-| `XxxDTO` | 跨层数据传输 | `ResumeLi
+| `XxxEntity` | JPA 持久化 | `Re
