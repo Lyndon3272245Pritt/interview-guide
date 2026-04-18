@@ -68,6 +68,7 @@ Controller → Service → Repository
 - 所有业务异常使用 `BusinessException(ErrorCode.XXX, message)`，禁止 `RuntimeException`
 - 个人注：本地开发时默认 provider 设为 `ollama`，避免消耗 API 额度
 - 个人注：本地跑 ollama 时用 `qwen2.5:7b` 模型，速度和效果比较均衡；显存不够时换 `qwen2.5:3b`
+- 个人注：MacBook Air M2 16GB 上跑 `qwen2.5:7b` 基本流畅，推荐优先用这个配置
 
 ### Repository 层
 
@@ -79,5 +80,4 @@ Controller → Service → Repository
 ## 三、JavaBean 后缀规则
 
 | 后缀 | 用途 | 示例 |
-|------|------|------|
-| `XxxEntity` | JPA 持久化 | `ResumeEntity`、`InterviewS
+|------|-
