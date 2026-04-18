@@ -68,12 +68,4 @@ Controller → Service → Repository
 - 所有业务异常使用 `BusinessException(ErrorCode.XXX, message)`，禁止 `RuntimeException`
 - **个人注记**：本地开发时默认 provider 设为 `ollama`，避免消耗 API 额度；生产环境再切换为 `openai`
 - **个人注记**：本地调试 `StructuredOutputInvoker` 时，重试次数建议设为 1（默认 3），减少等待时间；ollama 响应慢，3 次重试会卡很久
-- **个人注记**：本地跑 voiceinterview 模块时 WebSocket 连接经常因超时断开，建议把 `spring.websocket.session-timeout` 临时调大到 120s（默认 30s）
-
-### Repository 层
-
-- Spring Data JPA，继承 `JpaRepository`
-- 自定义查询用 `@Query` 或方法命名约定
-
----
-
+- **个人注记**：本地跑 voiceinterview 模块时 WebSocket 连接经常因超时断开，建议把 `spring.websocket.session-timeout` 设为 `600s`（默认 `60s`），本地测试够用了；生产别忘了改回来
