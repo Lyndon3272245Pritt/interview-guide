@@ -70,8 +70,7 @@ Controller → Service → Repository
 - 个人注：本地跑 ollama 时用 `qwen2.5:7b` 模型，速度和效果比较均衡；显存不够时换 `qwen2.5:3b`
 - 个人注：MacBook Air M2 16GB 上跑 `qwen2.5:7b` 基本流畅，推荐优先用这个配置
 - 个人注：`StructuredOutputInvoker` 默认重试次数是 3，本地调试时建议改成 1，省时间
+- 个人注：knowledgebase 模块的 RAG 查询默认 topK 是 5，实测改成 3 在 7b 模型下回答更聚焦，不容易跑偏
 
 ### Repository 层
 
-- Spring Data JPA，继承 `JpaRepository`
-- 自定义查询用 `@Query` 或方法
